@@ -16,7 +16,17 @@ import { listarNotas } from "@/lib/db/notas";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const notas = await listarNotas();
+  // La primera vez que se levanta el proyecto todavía no hay base configurada.
+  // En vez de reventar con un error de Prisma en la cara, se muestra qué falta.
+  // Es el mismo criterio que van a aplicar en todo el sistema: un error
+  // esperable no se propaga al usuario, se comunica.
+  let notas: Awaited<ReturnType<typeof listarNotas>> | null = null;
+
+  try {
+    notas = await listarNotas();
+  } catch {
+    notas = null;
+  }
 
   return (
     <main className="mx-auto max-w-2xl p-8">
@@ -25,27 +35,43 @@ export default async function Home() {
         Equipo: completar en el README y acá.
       </p>
 
-      <section className="mt-8">
-        <h2 className="text-lg font-semibold">Notas de ejemplo</h2>
-
-        {notas.length === 0 ? (
-          <p className="mt-4 text-sm opacity-70">
-            No hay datos todavía. Corré <code>pnpm db:seed</code>.
+      {notas === null ? (
+        <section className="mt-8 rounded-lg border border-dashed p-6">
+          <h2 className="text-lg font-semibold">Falta conectar la base de datos</h2>
+          <p className="mt-2 text-sm opacity-80">
+            El proyecto levanta, pero todavía no puede leer datos. Es lo esperable
+            hasta que hagan el paso de base de datos de la clase 1:
           </p>
-        ) : (
+          <ol className="mt-3 list-decimal space-y-1 pl-5 text-sm opacity-80">
+            <li>Crear un proyecto en Supabase (o MongoDB Atlas).</li>
+            <li>
+              Copiar la connection string a <code>DATABASE_URL</code> en{" "}
+              <code>.env.local</code>.
+            </li>
+            <li>
+              Correr <code>npx prisma migrate dev --name init</code> y{" "}
+              <code>npm run db:seed</code>.
+            </li>
+          </ol>
+        </section>
+      ) : notas.length === 0 ? (
+        <p className="mt-8 text-sm opacity-70">
+          La base está conectada pero no hay datos. Corran <code>npm run db:seed</code>.
+        </p>
+      ) : (
+        <section className="mt-8">
+          <h2 className="text-lg font-semibold">Notas de ejemplo</h2>
           <ul className="mt-4 space-y-3">
             {notas.map((nota) => (
               <li key={nota.id} className="rounded-lg border p-4">
                 <h3 className="font-medium">{nota.titulo}</h3>
                 <p className="mt-1 text-sm opacity-80">{nota.contenido}</p>
-                <p className="mt-2 text-xs opacity-60">
-                  por {nota.autor.nombre}
-                </p>
+                <p className="mt-2 text-xs opacity-60">por {nota.autor.nombre}</p>
               </li>
             ))}
           </ul>
-        )}
-      </section>
+        </section>
+      )}
     </main>
   );
 }
