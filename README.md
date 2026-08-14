@@ -4,8 +4,8 @@
 
 **Equipo:**
 
-- Nombre Apellido — responsable general
-- Nombre Apellido — dueño de la infraestructura (cuenta de Vercel)
+- Nombre Apellido — responsable del equipo (cuenta de Vercel)
+- Nombre Apellido
 - Nombre Apellido
 - Nombre Apellido
 
