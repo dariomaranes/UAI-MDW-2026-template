@@ -4,12 +4,10 @@
 
 **Equipo:**
 
-| Integrante | Rol (rota cada 4 clases) |
-|---|---|
-| Nombre Apellido | Tech Lead / Arquitectura |
-| Nombre Apellido | Datos & API |
-| Nombre Apellido | Frontend & UX |
-| Nombre Apellido | DevOps & QA |
+- Nombre Apellido — responsable general
+- Nombre Apellido — dueño de la infraestructura (cuenta de Vercel)
+- Nombre Apellido
+- Nombre Apellido
 
 **Producción:** https://<tu-proyecto>.vercel.app
 **Problema que resuelve:** una oración.
@@ -73,7 +71,7 @@ docs/
 ## Reglas del equipo
 
 - Nadie pushea a `main`. Todo entra por Pull Request con al menos 1 aprobación.
-- Las convenciones de código están en [`AGENTS.md`](./AGENTS.md) — mantenerlo al día es responsabilidad del Tech Lead.
+- Las convenciones de código están en [`AGENTS.md`](./AGENTS.md) — mantenerlo al día es responsabilidad del equipo.
 - Una decisión técnica que cueste revertir se documenta como ADR en `docs/adr/`.
 
 ## Definition of Done
