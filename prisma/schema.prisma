@@ -12,7 +12,14 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+
+  // Vercel es serverless, así que hacen falta dos conexiones distintas:
+  //   DATABASE_URL → el pooler, que la app usa en cada request
+  //   DIRECT_URL   → la conexión directa, que usan las migraciones
+  // Con una sola funciona en clase y se cae en producción por agotar
+  // las conexiones de Postgres.
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 // ¿El equipo eligió MongoDB? Se cambia el provider a "mongodb", se usa una
