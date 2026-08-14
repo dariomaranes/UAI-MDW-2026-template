@@ -2,13 +2,6 @@
 
 <Una o dos oraciones. Si hay una historia de usuario asociada, linkeala.>
 
-## Qué revisó el equipo de lo que generó la IA
-
-<Una línea. Qué se corrigió, qué se movió de lugar o qué se descartó del código generado.
-Si no se usó IA, poner "sin IA".>
-
----
-
 ## Checklist
 
 - [ ] Funciona en el preview deployment, no solo en local

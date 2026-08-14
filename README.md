@@ -73,7 +73,6 @@ docs/
 ## Reglas del equipo
 
 - Nadie pushea a `main`. Todo entra por Pull Request con al menos 1 aprobación.
-- Todo PR responde en una línea qué revisó el equipo de lo que generó la IA.
 - Las convenciones de código están en [`AGENTS.md`](./AGENTS.md) — mantenerlo al día es responsabilidad del Tech Lead.
 - Una decisión técnica que cueste revertir se documenta como ADR en `docs/adr/`.
 
