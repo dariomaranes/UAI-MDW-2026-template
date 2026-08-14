@@ -4,7 +4,7 @@
 
 **Equipo:**
 
-- Nombre Apellido — responsable del equipo (cuenta de Vercel)
+- Nombre Apellido — responsable del repositorio (creó el repo y tiene la cuenta de Vercel)
 - Nombre Apellido
 - Nombre Apellido
 - Nombre Apellido
