@@ -58,7 +58,7 @@ app/                    rutas (App Router)
 components/             componentes de UI
 lib/
   db/                   acceso a datos — ÚNICO lugar que habla con Prisma
-  schemas/              schemas de Yup (validación + tipos)
+  schemas/              schemas de Zod (validación + tipos)
   auth.ts               configuración de sesión y roles
 prisma/
   schema.prisma         modelo de datos
