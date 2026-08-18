@@ -55,13 +55,40 @@ Las restricciones que **no** son obvias y que la IA no puede adivinar. Estas son
 - <ej: un turno no puede superponerse con otro del mismo profesional>
 - <ej: solo el creador o un administrador puede cancelar>
 
-## 7. Integración externa
+## 7. Requisitos no funcionales
+
+No son funcionalidades: son condiciones que todo el sistema tiene que cumplir. Se escriben ahora
+porque al final del cuatrimestre ya no se pueden arreglar. En la **clase 10** se auditan contra lo
+que hayan construido.
+
+### Usabilidad
+
+Los cinco criterios del material de la clase 2, convertidos en algo **medible**. Reemplacen los
+ejemplos por los de su dominio: lo que importa es que se pueda verificar, no que suene bien.
+
+- **Eficiencia:** <la tarea principal> se hace en <N> interacciones o menos.
+- **Errores:** si falta un campo obligatorio, se señala el campo y no se pierde lo ya cargado.
+- **Aprendizaje:** alguien que nunca vio el sistema puede <la tarea principal> sin que le expliquen.
+- **Recuerdo:** el flujo principal está a un clic desde la home y siempre en el mismo lugar.
+- **Satisfacción:** se prueba con una persona de afuera del equipo antes del Demo Day.
+
+### Accesibilidad
+
+Esta lista es **igual para todos los proyectos**: no hay que adaptarla, hay que cumplirla.
+
+- [ ] Todo se puede operar **con el teclado**, y se ve dónde está el foco.
+- [ ] Los campos de formulario tienen `label` asociado, no solo *placeholder*.
+- [ ] Las imágenes que informan tienen texto alternativo; las decorativas, alternativo vacío.
+- [ ] El **contraste** entre texto y fondo llega a **4,5:1** (3:1 si la letra es grande).
+- [ ] El error nunca se comunica **solo con color**: siempre hay texto.
+
+## 8. Integración externa
 
 **Cuál:** <storage / email / pagos / mapas / IA>
 **Para qué:** <qué resuelve en el producto>
 **Qué pasa si se cae:** <plan de contingencia>
 
-## 8. Fuera de alcance
+## 9. Fuera de alcance
 
 Lo que decidimos **no** hacer, para no volver a discutirlo en la clase 12.
 
