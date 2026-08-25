@@ -52,6 +52,15 @@ model Nota {
   creadaEn      DateTime @default(now())
   actualizadaEn DateTime @updatedAt
 
+  // `onDelete` NO tiene un valor por defecto razonable: se decide relación por
+  // relación. Acá va Cascade porque una nota sin autor no significa nada, así
+  // que borrar la cuenta se lleva sus notas.
+  //
+  // En su dominio esa respuesta suele ser la contraria: lo que es historia
+  // —una aplicación de vacuna, un movimiento, un comprobante— va con Restrict,
+  // porque dar de baja a una persona no puede borrar el registro de lo que
+  // pasó. La pregunta para cada relación es: "si borro esto, ¿qué otra cosa
+  // tiene sentido que desaparezca?".
   autor         Usuario  @relation(fields: [autorId], references: [id], onDelete: Cascade)
   autorId       String
 
