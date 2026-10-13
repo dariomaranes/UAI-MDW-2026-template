@@ -48,6 +48,24 @@ El recorrido completo, paso a paso, del flujo que da valor al sistema (no un ABM
 2.
 3.
 
+### El mapa de pantallas
+
+Qué pantalla realiza cada paso, con qué dirección y quién la puede abrir. Se completa **antes**
+de escribir la pantalla —o de pedírsela a un asistente—, por el mismo motivo por el que la API
+se define antes que el cliente: la dirección es el identificador del recurso, y una que se
+inventa sobre la marcha después no se puede cambiar sin romper los enlaces que ya se mandaron.
+
+Una fila por paso. Si un paso no es una pantalla —una regla que se calcula, algo que pasa fuera
+del sistema—, se dice y listo. Las que todavía no existen se marcan, así el mapa muestra cuánto
+falta del flujo.
+
+| Paso | Pantalla | Dirección | Quién la ve |
+|---|---|---|---|
+| — | Ingreso | `/ingresar` | Cualquiera, sin sesión |
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |
+
 ## 6. Reglas de negocio
 
 Las restricciones que **no** son obvias y que la IA no puede adivinar. Estas son las que hay que revisar a mano.
