@@ -17,7 +17,7 @@
 
 ## Puesta en marcha
 
-Requisitos: Node 20+, npm, y una base de datos: **Postgres** (Supabase) o **MongoDB** (Atlas). Las dos tienen plan gratuito.
+Requisitos: Node 22+, npm, y una base de datos: **Postgres** (Supabase) o **MongoDB** (Atlas). Las dos tienen plan gratuito.
 
 ```bash
 npm install
