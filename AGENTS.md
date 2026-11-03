@@ -103,6 +103,26 @@ Después de tocar `prisma/schema.prisma`, siempre generar una migración. Nunca 
 - **Mobile-first:** se escribe primero el caso angosto —375px, botones a lo ancho, sin scroll
   horizontal— y el ancho se agrega con `sm:` hacia arriba.
 
+### Pruebas
+- **Las pruebas cambian cuando cambia la spec o el contrato, no cuando cambia el código.** Un
+  refactor no toca las pruebas; si las rompe, cambió un comportamiento que no tenía que cambiar.
+  Nunca se "arregla" una prueba roja cambiando el valor esperado.
+- **Las reglas de dominio se prueban como funciones**, con vitest, en un `*.test.ts` al lado del
+  archivo. Sin base, sin red, sin congelar el reloj: la fecha de hoy entra por parámetro. **Una
+  regla nueva o modificada (sección 6 de la spec) entra con su prueba en el mismo PR.**
+- **El flujo principal de la spec tiene su prueba de punta a punta** en
+  `e2e/flujo-principal.spec.ts`, un `test.step` por paso. Si el flujo cambia en la spec, cambia la
+  prueba en el mismo PR.
+- **Cada fila de la columna "Rol" de `docs/api.md` tiene su caso en `e2e/permisos.spec.ts`.** Un
+  endpoint nuevo entra con su fila. Las pruebas de permisos se escriben mirando el contrato, no el
+  código: el código dice lo que hace, no lo que debería hacer.
+- Las pruebas e2e buscan como una persona: `getByLabel`, `getByRole`, `getByText`. Nunca por
+  clase de CSS ni por un id generado.
+- **Las pruebas e2e nunca corren contra la base de producción.** Usan una base local, y la
+  configuración se niega a arrancar si no lo es.
+- No se agrega un "modo prueba" a la app (usuarios mágicos, `if (process.env.E2E)`): la sesión de
+  las pruebas se fabrica afuera, con un secreto de prueba.
+
 ### Estilos
 - Solo Tailwind. Nada de CSS suelto ni estilos inline salvo valores calculados en runtime.
 - Los componentes de UI base salen de shadcn/ui y se editan en `components/ui/`.
